@@ -3,9 +3,8 @@
 # https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_scratch_orgs.htmyy
 
 # run with:
-# cd g:\Google_Drive\GitHub\custom-scripts\
-# g:
-# bash newsfproject.sh
+# cd desktop/custom-scripts/
+# newsfproject.sh
 
 echo "Enter Project Details -----------------------------------------------------------------------"
 read -p 'Git URL: ' giturl

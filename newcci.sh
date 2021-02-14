@@ -1,12 +1,9 @@
+#!/bin/bash
 # CumulusCI Project
 
 # run with:
-# cd /g/Google_Drive/GitHub/custom-scripts/
-
-# run with:
-# cd g:\Google_Drive\GitHub\custom-scripts\
-# g:
-# bash newcci.sh
+# cd desktop/custom-scripts/
+# newcci.sh
 
 echo "Enter Project Details -----------------------------------------------------------------------"
 read -p 'Git URL: ' giturl
