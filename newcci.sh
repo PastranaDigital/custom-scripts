@@ -24,13 +24,13 @@ echo "New Branch Name: $branchname"
 echo "Git: Cloning an Existing Repository ---------------------------------------------------------"
 cd /g/Google_Drive/GitHub/
 git clone $giturl $projectname
-#cd $projectname
+code $projectname # might work?
 #cd ..
 
 echo "CumulusCI: Initializing Project -------------------------------------------------------------"
 cci project init
-echo "CumulusCI: Connecting Service ---------------------------------------------------------------"
-sfdx force:config:set defaultdevhubusername=$devhuborgalias
+#echo "CumulusCI: Connecting Service ---------------------------------------------------------------"
+#sfdx force:config:set defaultdevhubusername=$devhuborgalias
 #cci service connect devhub --project
 
 echo "Git: Creating New Branch [feature/$branchname] ------------------------------------------------------"
