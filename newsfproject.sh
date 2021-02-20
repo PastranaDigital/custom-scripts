@@ -24,7 +24,7 @@ sfdx force:project:create --projectname $projectname --manifest
 
 echo "VSCode: Add SFDX Project Folder to Workspace ------------------------------------------------"
 code --add $projectname
-cd $projectname
+#cd $projectname # I think this is causing it to stall after git actions
 
 echo "Git: Creating New Branch [feature/$branchname] ------------------------------------------------------"
 git branch feature/$branchname
