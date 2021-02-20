@@ -38,10 +38,10 @@ echo "SFDX: Authorizing Default Dev Hub Org ------------------------------------
 sfdx force:auth:web:login -d -a $devhuborgalias -s
 sfdx force:org:list
 echo "SFDX: Creating Scratch Org ------------------------------------------------------------------"
-sfdx force:org:create -f $projectname/config/project-scratch-def.json -s -a so$branchname -d 30
+sfdx force:org:create -f $projectname/config/project-scratch-def.json -s -a so_$projectname_$branchname -d 14
 sfdx force:org:list
 echo "SFDX: Opening Scratch Org -------------------------------------------------------------------"
-sfdx force:config:set defaultusername=so$branchname
+sfdx force:config:set defaultusername=so_$projectname_$branchname
 sfdx force:org:open
 
 #echo "SFDX: Pushing Metadata ----------------------------------------------------------------------"
