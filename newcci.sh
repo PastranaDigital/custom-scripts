@@ -1,6 +1,10 @@
 #!/bin/bash
 # CumulusCI Project
 
+# PREWORK: 
+## Created git repo in GitHub
+## VSCode is empty except the Terminal window
+
 # run with:
 # cd desktop/custom-scripts/
 # newcci.sh
@@ -22,23 +26,25 @@ fi
 echo "New Branch Name: $branchname"
 
 echo "Git: Cloning an Existing Repository ---------------------------------------------------------"
-cd /g/Google_Drive/GitHub/
+cd Github/practice/
 git clone $giturl $projectname
-code $projectname # might work?
+cd $projectname/
+code .  # should open this folder in VSCode
+#code $projectname # might work?
 #cd ..
 
 echo "CumulusCI: Initializing Project -------------------------------------------------------------"
 cci project init
-#echo "CumulusCI: Connecting Service ---------------------------------------------------------------"
-#sfdx force:config:set defaultdevhubusername=$devhuborgalias
-#cci service connect devhub --project
+echo "CumulusCI: Connecting Service ---------------------------------------------------------------"
+sfdx force:config:set defaultdevhubusername=$devhuborgalias
+cci service connect devhub --project
 
-echo "Git: Creating New Branch [feature/$branchname] ------------------------------------------------------"
-git branch feature/$branchname
-git switch feature/$branchname
+echo "Git: Creating New Branch [feature/op/$branchname] ------------------------------------------------------"
+git branch feature/op/$branchname
+git switch feature/op/$branchname
 git add .
 git commit -m 'Set up Project'
-git push -u origin feature/$branchname
+git push -u origin feature/op/$branchname
 git log
 
 #echo "SFDX: Authorizing Default Dev Hub Org -------------------------------------------------------"
