@@ -73,3 +73,23 @@ PS1='\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31
 
 #export CLICOLOR=1
 #export LSCOLORS=GxFxCxDxBxegedabagaced
+
+
+
+
+# jenv & Java settings
+# get `jenv` installed: https://stackoverflow.com/a/47699905
+# helpful: https://stackoverflow.com/questions/30413621/homebrew-cask-option-not-recognized
+# also helpful: https://devqa.io/brew-install-java/
+#---------------------------------------------------
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+export PATH="$HOME/.jenv/shims:$PATH"
+
+export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+
+alias java8='export JAVA_HOME=$JAVA_8_HOME'
+alias java11='export JAVA_HOME=$JAVA_11_HOME'
+
+# default to Java 11
+java11
