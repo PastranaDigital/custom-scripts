@@ -47,6 +47,9 @@ git commit -m 'Set up Project'
 git push -u origin feature/op/$branchname
 git log
 
-#echo "SFDX: Authorizing Default Dev Hub Org -------------------------------------------------------"
-#sfdx force:auth:web:login -d -a $devhuborgalias -s
-#sfdx force:org:list
+echo "CumulusCI: Creating Dev Scratch Org [$projectname__dev] -------------------------------------------------------"
+cci flow run dev_org --org dev
+echo "SFDX: Set Default Org & Open -------------------------------------------------------"
+sfdx force:config:set defaultusername=$projectname__dev
+sfdx force:org:list
+cci org browser dev
