@@ -1,29 +1,41 @@
+source ~/regression.sh
+
+
 #bash shortcuts
 #---------------------------------------------------
 alias openbash='open ~/.bash_profile'
-alias loadprofile='source ~/.bash_profile'
-alias newcci='bash ~/desktop/custom-scripts/ccitest.sh'
+alias refreshbash="source ~/.bash_profile && echo '** Refreshed **'"		# refresh the bash terminal with the new bash profile
+alias newcci='bash ~/Github/practice/custom-scripts/newcci.sh'
+
 
 
 
 
 # CCI shortcuts
 #---------------------------------------------------
-alias easy_org='function _easy_org(){ cci org remove $1; cci org scratch dev $1 --default --days 10; cci flow run dev_org --org $1; cci flow run dev_data_apex --org $1; cci flow run community_setup --org $1; cci org browser $1; cci org info $1 };_easy_org'
 
-alias new_org='function _new_org(){ cci org remove $1; cci org scratch dev $1 --default --days 10; cci flow run dev_org --org $1; cci flow run dev_data_apex --org $1; cci org browser $1; cci org info $1 };_new_org'
+alias neworg="cci org scratch dev $1 --default --days 15"
+alias flowrunhed="cci flow run install_hed"
+alias flowrunrobot="cci flow run robot_org"
+alias flowrunrobot="cci flow run robot_org_2gp"
+alias flowrunqa="cci flow run qa_org"
+alias flowrun2gp="cci flow run qa_org_2gp"
+alias neworg_help="echo '**'; echo 'neworg <new-org-name>'; echo '**'"
 
 
-alias upgrade_all="brew update && brew upgrade && sfdx update"
-alias org_default="cci org default $1"  					# Set a scratch org as a default
-alias org_delete="cci org scratch_delete $1; cci org remove --org $1"  	# Commands to remove and clean up expired scratch orgs
-alias org_deploy="cci flow run deploy_unmanaged"
+#alias upgrade_all="brew update && brew upgrade && sfdx update && npm install -g npm"
+alias upgrade_all="brew update && brew upgrade && npm update --global sfdx-cli && npm install -g npm"
+
+alias org_default="cci org default $1"  						# Set a scratch org as a default
+alias org_switch="cci org default $1 && cci org info $1 && cci org browser $1"
+
+alias org_delete="cci org scratch_delete $1; cci org remove --org $1"  		# Commands to remove and clean up expired scratch orgs
 alias org_info="cci org info $1"
 alias org_launch="cci org browser $1 && cci org info $1"
-alias org_list="cci org list"						# Displays a list of your scratch orgs
+alias org_list="cci org list"							# Displays a list of your scratch orgs
 alias org_prune="cci org prune"
 alias dxpush="cci task run dx_push"
-alias gist="cci error gist"  						# Generate a gist to save error details. Great for debugging
+alias gist="cci error gist"  							# Generate a gist to save error details. Great for debugging
 
 
 
@@ -31,16 +43,8 @@ alias gist="cci error gist"  						# Generate a gist to save error details. Grea
 
 # git shortcuts
 #---------------------------------------------------
-alias ammendCommit="git commit --ammend --no-edit"
-alias undoCommit="git reset --soft HEAD@{0}" 				#resets the last commit
-alias gb="git branch"
-alias gc="git checkout"
-alias gf="git fetch"
-alias gp="git pull"
-alias gs="git status"
-alias gl="git log  pretty-format:'%h %ad [%an]  |  %s%d' --date=short"
-alias gla="git log  pretty-format:'%h %ad [%an]  |  %s%d' --date=short --author=$1"
-alias gitstash="git stash --include-untracked"
+alias newbranch="git checkout $1 && git pull && git checkout -b $2 $1"
+alias newbranch_help="echo '**'; echo 'newbranch <parent-branch> <new-branch>'; echo '**'"
 
 
 
@@ -54,7 +58,14 @@ alias sfdxpush='sfdx force:source:push'
 alias sfdxpull='sfdx force:source:pull'
 alias sfdxrealias='sfdx alias:unset $1'
 
-alias sfdxpassword='sfdx force:user:password:generate -u $1'
+alias userinfo='sfdx force:user:display'
+
+
+
+
+
+
+
 
 
 
