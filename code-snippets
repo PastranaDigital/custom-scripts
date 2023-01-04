@@ -1,0 +1,195 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"grid template columns": {
+		"scope": "html,css",
+		"prefix": "gtc",
+		"body": ["grid-template-columns: repeat($1, $2);$0"],
+		"description": "grid template columns"
+	},
+
+	"grid template rows": {
+		"scope": "html,css",
+		"prefix": "gtr",
+		"body": ["grid-template-rows: repeat($1, $2);$0"],
+		"description": "grid template rows"
+	},
+
+	"add JS file to HTML": {
+		"scope": "html,javascript,typescript",
+		"prefix": "linkjs",
+		"body": ["<script type=\"module\" defer src=\"$controller.js\"></script>"],
+		"description": "add JS file to HTML"
+	},
+
+	"Print to console2": {
+		"scope": "javascript,typescript, html",
+		"prefix": "cll",
+		"body": ["console.log('$1: ', $1);"],
+		"description": "Log output to console with identifier"
+	},
+
+	"for Each": {
+		"scope": "javascript,typescript",
+		"prefix": "fe",
+		"body": ["${1:array}.forEach((${2:element}) => {", "    $0", "});"],
+		"description": "for each loop with all parameters"
+	},
+
+	"for Each full": {
+		"scope": "javascript,typescript",
+		"prefix": "fef",
+		"body": ["${1:array}.forEach(function(${2:element}, index, array) {", "    $0", "});"],
+		"description": "for each loop with all parameters"
+	},
+
+	"document query select": {
+		"scope": "javascript,typescript, html",
+		"prefix": "dq",
+		"body": ["const $el = document.querySelector('.$el');$0"],
+		"description": "document query select"
+	},
+
+	"document query select all": {
+		"scope": "javascript,typescript, html",
+		"prefix": "dqa",
+		"body": ["const $el = document.querySelectorAll('.$el');$0"],
+		"description": "document query select all"
+	},
+
+	"Print to console": {
+		"scope": "javascript,typescript, html",
+		"prefix": "cl",
+		"body": ["console.log$1();"],
+		"description": "Log output to console"
+	},
+
+	"Error to console": {
+		"scope": "javascript, html",
+		"prefix": "ce",
+		"body": ["console.error($1.message);$0"],
+		"description": "error output to console"
+	},
+
+	"xlog": {
+		"scope": "javascript,typescript",
+		"prefix": "xl",
+		"body": ["console.log('$1: ', JSON.parse(JSON.stringify($1)));"],
+		"description": "logs json stuff through proxy"
+	},
+
+	"SystemDebug": {
+		"prefix": "sd",
+		"body": ["System.debug('$1::: ' + $1);"],
+		"description": "standard apex log"
+	},
+
+	"SystemDebug with JS Pretty": {
+		"prefix": "sdj",
+		"body": ["System.debug('$1::: ' + JSON.serializePretty($1));"],
+		"description": "standard apex log"
+	},
+
+	"Get element by Id": {
+		"prefix": "getid",
+		"body": "const $el = document.getElementById('$el');$0",
+		"description": "Get dom element by id"
+	},
+
+	"LWC Card": {
+		"scope": "html",
+		"prefix": "licard",
+		"body": [
+			"<lightning-card title=\"$1\" icon-name=\"${2:standard:account}\">",
+			"    <div class=\"slds-p-around_medium\">$4",
+			"    </div>",
+			"    <!-- <p slot=\"footer\"></p> -->",
+			"</lightning-card>$0"
+		],
+		"description": "LWC Basic Card"
+	},
+
+	"LWC Layout + Items": {
+		"scope": "html",
+		"prefix": "lilayout",
+		"body": [
+			"<lightning-layout multiple-rows>",
+			"    <!-- max width for a row = 12 -->",
+			"    <lightning-layout-item size=\"${1:6}\" padding=\"around-small\">$0</lightning-layout-item>",
+			"</lightning-layout>"
+		],
+		"description": "LWC Basic Layout + Items"
+	},
+
+	"LWC Input": {
+		"scope": "html",
+		"prefix": "liinput",
+		"body": [
+			"<lightning-input ",
+			"    label=\"${1:Name}\" ",
+			"    type=\"${2|text, checkbox, checkbox-button, color, date, datetime, time, email, file, password, range, search, tel, url, number, toggle|}\" ",
+			"    placeholder=\"$3\" ",
+			"    class=\"slds-p-left_medium slds-p-vertical_small\" ",
+			"    field-level-help=\"$4\" ",
+			"    required",
+			"></lightning-input>$0"
+		],
+		"description": "LWC Basic Input"
+	},
+
+	"LWC Combobox": {
+		"scope": "html",
+		"prefix": "licombobox",
+		"body": [
+			"<lightning-combobox ",
+			"    label=\"${1:Label}\" ",
+			"    name=\"$1\" ",
+			"    placeholder=\"${2:Select an Option}\" ",
+			"    class=\"slds-p-left_medium slds-p-vertical_small\" ",
+			"    field-level-help=\"\" ",
+			"    value={$4} ",
+			"    options={$5} ",
+			"    onchange={${6:handle$1Change}} ",
+			"    required",
+			"></lightning-combobox>$0"
+		],
+		"description": "LWC Basic Combobox"
+	},
+
+	"LWC Button": {
+		"scope": "html",
+		"prefix": "libutton",
+		"body": [
+			"<lightning-button",
+			"    variant=\"brand\"",
+			"    label=\"$1\"",
+			"    title=\"$1\"",
+			"    onclick={handleClick}",
+			"    class=\"${2:slds-m-around_medium}\"",
+			"></lightning-button>$0"
+		],
+		"description": "LWC Basic Button"
+	},
+
+	"LWC Iterate": {
+		"scope": "html",
+		"prefix": "temp liiter",
+		"body": ["<template for:each={$1} for:item=\"$2\">", "    $0", "</template>"],
+		"description": "LWC Template Iteration of Array"
+	}
+}
