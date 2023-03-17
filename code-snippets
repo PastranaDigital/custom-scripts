@@ -191,5 +191,23 @@
 		"prefix": "temp liiter",
 		"body": ["<template for:each={$1} for:item=\"$2\">", "    $0", "</template>"],
 		"description": "LWC Template Iteration of Array"
+	},
+
+	"Logger HTML": {
+		"scope": "html",
+		"prefix": "clo",
+		"body": "<c-logger></c-logger>",
+		"description": "Logger"
+	},
+
+	"Logger JS": {
+		"scope": "javascript",
+		"prefix": "clo",
+		"body": [
+			"const logger = this.template.querySelector('c-logger');",
+			"logger.error(JSON.stringify(${1:error}));",
+			"logger.saveLog();"
+		],
+		"description": "Logger"
 	}
 }
